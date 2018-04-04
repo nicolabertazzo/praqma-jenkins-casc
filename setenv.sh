@@ -1,4 +1,4 @@
-secretFolder="secret"
+secretFolder="secrets"
 
 echo "create $secretFolder folder"
 mkdir $secretFolder
