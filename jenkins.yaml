@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Welcome to the demo setup for Jenkins Configuration as Code plugin. For more information look in the official repo with our demo setup: https://github.com/Praqma/praqma-jenkins-casc"
+  systemMessage: "Welcome to the demo setup for Jenkins Configuration as Code plugin. For more information look in the official repo with our demo setup: https://github.com/ewelinawilkosz/praqma-jenkins-casc"
   securityRealm:
     local:
       allowsSignup: false
@@ -25,7 +25,7 @@ jenkins:
           modernSCM:
             scm:
               git:
-                remote: "https://github.com/Praqma/praqma-jenkins-casc-shared-lib-demo"                                       
+                remote: "https://github.com/Praqma/praqma-jenkins-casc-shared-lib-demo"
   warnings:
     parsers:
       - name: "Example parser"
@@ -39,7 +39,7 @@ jenkins:
           String category = matcher.group(3)
           String message = matcher.group(4)
           return new Warning(fileName, Integer.parseInt(lineNumber), "Dynamic Parser", category, message);
-        example: "somefile.txt:2:SeriousWarnings:SomethingWentWrong"           
+        example: "somefile.txt:2:SeriousWarnings:SomethingWentWrong"
 credentials:
   system:
     ? # "global"
@@ -63,7 +63,7 @@ jobs:
           }
         }
       }
-  - > 
+  - >
       multibranchPipelineJob('demo2-example') {
         description("A generic software build")
         branchSources {
