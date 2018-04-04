@@ -51,7 +51,7 @@ credentials:
 
 security:
     remotingCLI:
-          enabled: false
+          enabled: true
 
 jobs:
   - >
