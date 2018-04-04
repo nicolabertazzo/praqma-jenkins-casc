@@ -48,6 +48,11 @@ credentials:
           id:       github-user
           username: ReleasePraqma
           password: ${github}
+
+security:
+    remotingCLI:
+          enabled: false
+
 jobs:
   - >
       multibranchPipelineJob('demo1-example') {
