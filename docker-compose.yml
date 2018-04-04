@@ -15,11 +15,11 @@ services:
       - github
       - adminpw
     environment:
-      - CASC_JENKINS_CONFIG=https://raw.githubusercontent.com/ewelinawilkosz/praqma-jenkins-casc/master/jenkins.yaml
+      - CASC_JENKINS_CONFIG=https://raw.githubusercontent.com/ewelinawilkosz/praqma-jenkins-casc/secrets/jenkins.yaml
 secrets:
   github:
-    file: secrets/github
+    file: /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc/secrets/github
   adminpw:
-    file: secrets/adminpw
+    file: /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc/secrets/adminpw
 volumes:
   jenkins_home:
