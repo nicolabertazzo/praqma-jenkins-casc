@@ -14,7 +14,6 @@ jenkins:
            - "Overall/Read"
            - "Job/Read"
            - "View/Read"
-           - "Overall/Administer"
         - name: "authenticated"
           permissions:
            - "Overall/Administer"
