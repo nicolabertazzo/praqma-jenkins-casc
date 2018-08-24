@@ -1,13 +1,13 @@
 version: '3.3'
 
 services:
-  jenkins: 
-    build: 
+  jenkins:
+    build:
       context: ./master
       args:
         JAVA_OPTS: '-Djenkins.CLI.disabled=true'
-    ports: 
-      - 80:8080
+    ports:
+      - 8080:8080
       - 50000:5000
     volumes:
       - jenkins_home:/var/jenkins_home
@@ -19,8 +19,8 @@ services:
       - CASC_JENKINS_CONFIG=/var/jenkins_conf/jenkins.yaml
 secrets:
   github:
-    file: /var/deploy/secrets/github
+    file: /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc/secrets/github
   adminpw:
-    file: /var/deploy/secrets/adminpw
+    file: /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc/secrets/adminpw
 volumes:
   jenkins_home:
