@@ -1,4 +1,4 @@
-# JcasC hands on
+# JCasC hands on
 
 ## Introduction
 
@@ -8,7 +8,7 @@ Experienced Jenkins users rely on groovy init scripts to customize jenkins and e
 
 [Configuration-as-Code plugin](https://github.com/jenkinsci/configuration-as-code-plugin) has been designed as an opinionated way to configure jenkins based on human-readable declarative configuration files. Writing such a file should be feasible without being a Jenkins expert, just translating into code a configuration process one is used to executing in the web UI.
 
-And the goal of this hands on session is to show you to start with JcasC and how to not give up :smile:
+And the goal of this hands on session is to show you to start with JCasC and how to not give up :smile:
 
 ## What we'll use
 
@@ -37,7 +37,7 @@ volumes:
   - /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc:/var/jenkins_conf
 ```
 
-JcasC supports url as a yaml location, but to make it easier for hands-on session we'll rely on location on disk. In orderd to make the yaml accessible inside your docker container map the location of your repo to */var/jenkins_conf* folder at you container
+JCasC supports url as a yaml location, but to make it easier for hands-on session we'll rely on location on disk. In orderd to make the yaml accessible inside your docker container map the location of your repo to */var/jenkins_conf* folder at you container
 
 ```
 secrets:
@@ -69,7 +69,7 @@ securityRealm:
 How do I know that? What is the right root element, what are the keywords? 
 
 When you add users (Jenkins' own database) you go to `http://localhost:8080/securityRealm/`. So let's look for `securityRealm`in the documentation. 
-Or have a look at `demo` folder in JcasC repository.
+Or have a look at `demo` folder in JCasC repository.
 
 5. We have a user, how to manage who&what?
 
