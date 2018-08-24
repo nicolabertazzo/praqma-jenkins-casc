@@ -1,7 +1,9 @@
-credentials:2.1.16
-git:3.8.0
-ssh-slaves:1.26
-warnings:4.66
-matrix-auth:2.2
-job-dsl:1.68
-workflow-aggregator:2.5
+credentials:latest
+git:latest
+ssh-slaves:latest
+warnings:latest
+matrix-auth:latest
+job-dsl:latest
+workflow-aggregator:latest
+jdk-tool:latest
+command-launcher:latest

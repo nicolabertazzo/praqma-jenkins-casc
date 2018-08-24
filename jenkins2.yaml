@@ -1,0 +1,31 @@
+jenkins:
+  systemMessage: "blah blah blah\n\n"
+  numExecutors: 1
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+  labelString: "master-label"
+  noUsageStatistics: true
+  
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: demoAdmin
+         password: ${adminpw}
+         
+  authorizationStrategy:
+    globalMatrix:
+      grantedPermissions:
+        - "Overall/Read:anonymous"
+        - "Overall/Administer:authenticated"
+        
+jobs:
+  - script: >
+      multibranchPipelineJob('configuration-as-code') {
+          branchSources {
+              git {
+                  id = 'configuration-as-code'
+                  remote('https://github.com/jenkinsci/configuration-as-code-plugin.git')
+              }
+          }
+      }

@@ -11,11 +11,12 @@ services:
       - 50000:5000
     volumes:
       - jenkins_home:/var/jenkins_home
+      - /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc:/var/jenkins_conf
     secrets:
       - github
       - adminpw
     environment:
-      - CASC_JENKINS_CONFIG=https://raw.githubusercontent.com/Praqma/praqma-jenkins-casc/master/jenkins.yaml
+      - CASC_JENKINS_CONFIG=/var/jenkins_conf/jenkins.yaml
 secrets:
   github:
     file: /var/deploy/secrets/github
