@@ -1,4 +1,4 @@
-FROM praqma/jenkins4casc:1.0-rc2
+FROM praqma/jenkins4casc:1.1-latest
 COPY plugins_extra.txt /usr/share/jenkins/ref/plugins_extra.txt
 
 LABEL maintainer="man@praqma.net" 
