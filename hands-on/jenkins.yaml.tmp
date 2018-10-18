@@ -1,0 +1,88 @@
+jenkins:
+#  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code Plugin\n\n"
+  systemMessage: "Hello Day of Jenkins.\n\n"
+  numExecutors: 1
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+  labelString: "master-label"   
+     
+  globalNodeProperties:
+    - envVars:
+        env:
+          - key: FOO
+            value: BAR    
+  
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: demoAdmin
+          password: ${adminpw}
+          
+  authorizationStrategy:
+    globalMatrix:
+      grantedPermissions:
+        - "Overall/Read:anonymous"
+        - "Overall/Administer:authenticated"
+          
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false      
+
+  remotingSecurity:
+    enabled: true       
+
+security:
+  remotingCLI:
+    enabled: false
+                        
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: github
+              username: "abcdef"
+              password: ${github}
+
+unclassified:    
+  location:
+    adminAddress: admin@abcd.com
+    url: http://127.0.0.1:8080/
+              
+  globalLibraries:
+    libraries:
+      - name: "demo-lib"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/Praqma/praqma-jenkins-casc-shared-lib-demo"
+
+  warnings:
+    parsers:
+      - name: "Example parser"
+        linkName: "Example parser link"
+        trendName: "Example parser trend name"
+        regexp: "^\\s*(.*):(\\d+):(.*):\\s*(.*)$"
+        script: |
+          import hudson.plugins.warnings.parser.Warning
+          String fileName = matcher.group(1)
+          String lineNumber = matcher.group(2)
+          String category = matcher.group(3)
+          String message = matcher.group(4)
+          return new Warning(fileName, Integer.parseInt(lineNumber), "Dynamic Parser", category, message);
+        example: "somefile.txt:2:SeriousWarnings:SomethingWentWrong"
+
+jobs:
+  - url: https://raw.githubusercontent.com/Praqma/memory-map-plugin/master/jenkins-pipeline/pipeline.groovy
+  - script: >
+      multibranchPipelineJob('configuration-as-code') {
+          branchSources {
+              git {
+                  id = 'configuration-as-code'
+                  remote('https://github.com/jenkinsci/configuration-as-code-plugin.git')
+              }
+          }
+      }
