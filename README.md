@@ -18,7 +18,7 @@ This is very simple, using docker-compose execute the following command from the
 
 `docker-compose up --build`
 
-This will start up a Jenkins instance which will be accessible on the host through port 80.
+This will start up a Jenkins instance which will be accessible on the host through port 8080.
 
 What you might want to change though is the configuration file used by the Configuration as Code plugin. Currently it points to our own `jenkins.yaml` file hosted on GitHub. 
 
