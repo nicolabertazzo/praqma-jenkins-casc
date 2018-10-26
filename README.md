@@ -37,3 +37,13 @@ If you don't have anywhere to host your configuration file, you can mount your c
     environment:
       - CASC_JENKINS_CONFIG=/path/to/my/jenkins.yaml
 ```
+
+## Corporate proxies
+If running behind a corporate proxy, correct proxy settings will need to be in place before the install-plugins script run.
+Set the following environment variables with the correct address and port in the Dockerfile and it will be picked up by the installation script.
+```
+ENV HTTP_PROXY your.company.proxy:80
+ENV HTTPS_PROXY your.company.proxy:80
+RUN export http_proxy=$HTTP_PROXY
+RUN export https_proxy=$HTTPS_PROXY
+```
