@@ -8,7 +8,7 @@ services:
         JAVA_OPTS: '-Djenkins.CLI.disabled=true'
     ports:
       - 8080:8080
-      - 50000:5000
+      - 50000:50000
     volumes:
       - jenkins_home:/var/jenkins_home
 #      - /Users/ewelinawilkosz/praqma/bd_repos/jenkinsci/praqma-jenkins-casc:/var/jenkins_conf
