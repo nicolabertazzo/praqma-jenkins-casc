@@ -5,7 +5,7 @@ services:
     build: 
       context: ./master
     ports: 
-      - 80:8080
+      - 8080:8080
       - 50000:50000
     volumes:
       - jenkins_home_summit:/var/jenkins_home
@@ -14,8 +14,8 @@ services:
     #   - github  #Github username with password as an example. Purpose here is to have a user with write-access for special cases. Like the git-publisher.
     #   - adminpw  #Initial adminstrator user password. Added for debugging purposes. Should be removed prior to go-live. 
     #   - agent_private_key #ssh private key for connecting ssh slaves
-    environment:
-      - CASC_JENKINS_CONFIG=/var/jenkins_conf
+#    environment:
+#      - CASC_JENKINS_CONFIG=/var/jenkins_conf
 # secrets: #Be careful with newlines in your secrets, make sure to remove them before running docker-compose up.
 #   github:
 #     file: /var/praqma-jenkins-casc/secrets/github

@@ -1,0 +1,17 @@
+jenkins:
+  globalNodeProperties:
+  - envVars:
+      env:
+      - key: "FORTIFY_MILANO_URL"
+        value: "https://fortify-ssc.telecomitalia.it/ssc"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  systemMessage: "Ciao a tutti belli e brutti"
+  slaveAgentPort: 50000
+tool:
+  maven:
+    installations:
+    - home: "/home/patriziam/maven"
+      name: "maven"
+  
